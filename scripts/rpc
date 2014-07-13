@@ -1,0 +1,18 @@
+#!/usr/bin/php
+<?php
+require_once('util.php');
+require_once('jsonRPCClient.php');
+
+// Global Settings Vars
+//Memorycoin rpc
+$rpchost = "64.90.187.158";
+$rpcport = "17335";
+$rpcuser = "zero";
+$rpcpass = "myzetacoinchain";
+
+$rpcQuery = new jsonRPCClient("http://".$rpcuser.":".$rpcpass."@".$rpchost.":".$rpcport);
+$blocknum = $rpcQuery->getblockcount();
+
+echo $blocknum;
+
+?>

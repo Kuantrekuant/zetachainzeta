@@ -1,0 +1,123 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video
+{
+  border:0;
+  font-weight:inherit;
+  vertical-align:baseline;
+  font-family:Lato;
+  margin:0;
+  padding:0;
+}
+
+body {
+  background-color: rgb(238, 238, 238);
+}
+
+.padding a { 
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.side p {
+	margin-top: 15px;
+}
+
+.jb {
+	margin-bottom: 0px;
+}
+
+.midnighblue {
+	background-color: #2c3e50;
+	color: rgb(196, 210, 223);
+}
+
+.belizehole {
+	background-color: #2980b9;
+	color: rgb(51, 51, 51);
+}
+
+.greensea {
+	background-color: #16a085;
+	color: rgb(240, 240, 240);
+}
+
+.grey {
+	background-color: rgb(238, 238, 238);
+	
+}
+
+.text.bold, strong, b {
+    font-weight: 700;
+}
+
+.text.center {
+	text-align: center;	
+}
+
+.f div {
+	margin-top:50px;
+}
+
+.f div > p {
+	margin-top:10px;
+	font-size:18px;
+}
+
+#screen {
+    height: 800px;
+    margin-left:25%;
+}
+
+#beta {
+	color:yellow;
+	text-transform:uppercase;
+	font-weight: 400;
+}
+
+.team {
+	padding: 4px;
+	line-height: 1.42857;
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(221, 221, 221);
+}
+
+.home {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.jumbotron h1, .jumbotron .h1 {
+    margin-bottom:30px;
+    font-size: 43px;
+}
+
+.jumbotron h2, .jumbotron .h2 {
+    margin-bottom:10px;
+    font-size: 33px;
+}
+
+.jumbotron p, .jumbotron .p {
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.social{color:rgb(238, 238, 238);padding:0 1%;}
+.social:hover{color:#666;text-decoration:none;}
+
+.navbar {margin-bottom:0px;}
+.navbar .navbar-header .navbar-brand {height: 50px}
+.navbar-brand {font-size: 24px;}
+.white {background-color: #FFF;} 
+input { margin-bottom:20px;}
+.navbar-brand-img {
+  width:36px;
+  top:-8px;
+  position:relative;
+  vertical-align:top;
+}
+.list-sm {
+  font-size: 20px;
+  line-height: 1.5;
+}

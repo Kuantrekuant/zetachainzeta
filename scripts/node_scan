@@ -1,0 +1,70 @@
+#!/usr/bin/php
+<?php
+
+require_once('jsonRPCClient.php');
+
+//RCP Wallet
+$rpchost = "localhost"; //64.90.187.158
+$rpcport = "17335";
+$rpcuser = "zero";
+$rpcpass = "myzetacoinchain";
+
+//Database
+$dbhost = "localhost";
+$dbuser = "root";
+$dbpass = "acovverdello1";
+$dbdata = "zetacoin";
+
+echo "\nZetacoin Node Scanner script\n";
+echo "written by TheZero (c) 2014. All rights reserved.\n";
+        
+mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error());
+mysql_select_db($dbdata) or die(mysql_error());
+
+$rpcQuery = new jsonRPCClient("http://".$rpcuser.":".$rpcpass."@".$rpchost.":".$rpcport);
+$raw = $rpcQuery->getpeerinfo();
+
+for ( $i = 0; $i < count($raw); $i++) {
+	if($raw[$i]['inbound']==false){
+		
+		$ip = explode(':',$raw[$i]['addr']);
+		$version = version($raw[$i]['subver']);
+
+		$sql = "SELECT * FROM `nodes` WHERE `ip` = '".$ip[0]."'";
+		$result = mysql_query($sql) or die(mysql_error());
+		
+		if(mysql_affected_rows() == 0){
+			$sql  = "INSERT INTO `nodes` (`ip`, `port`, `status`, `version`) ";
+			$sql .= "VALUES ('".$ip[0]."', '".$ip[1]."', '1', '$version');";
+
+			mysql_query($sql) or die(mysql_error());
+			
+			echo "Added Node: ".$ip[0]." ".$version."\n";
+		}
+	}
+}
+
+function version($v) {
+	$v = str_replace("/", "", $v);
+	$v = str_replace("Satoshi:", "", $v);
+	
+	$av = explode(".",$v);
+	$finalv = "";
+	$i=0;
+	foreach ($av as $value) {
+		$i++;
+    if($i == 4){
+			if($value < 10){
+				$finalv.="0".$value;
+			}else{
+				$finalv.=$value;
+			}
+		}elseif($i == 3 && count($av)==3){
+			$finalv.=$value.".00";
+		}else{
+			$finalv.=$value.".";
+		}
+	}
+	return "Satoshi:".$finalv;
+}
+?>
